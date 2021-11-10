@@ -1,0 +1,132 @@
+{
+  "version": "0.0.0",
+  "name": "myepicproject",
+  "instructions": [
+    {
+      "name": "startStuffOff",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "addGif",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "gifLink",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "updateItem",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "index",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "sendSol",
+      "accounts": [
+        {
+          "name": "from",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "to",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "ammount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "BaseAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "totalGifs",
+            "type": "u64"
+          },
+          {
+            "name": "gifList",
+            "type": {
+              "vec": {
+                "defined": "ItemStruct"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "ItemStruct",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "gifLink",
+            "type": "string"
+          },
+          {
+            "name": "votes",
+            "type": "u64"
+          },
+          {
+            "name": "userAddress",
+            "type": "publicKey"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "3ahCXCXqNpGiYre8KepfJPVJbVm8AJXTSR5nKSyUvThZ"
+  }
+}
